@@ -114,16 +114,13 @@ import sys
 import pynetbox
 from netbox_pyswagger import Client
 
-
 base_url = os.getenv('NETBOX_SERVER')
 if not base_url:
     sys.exit('NETBOX_SERVER not found in enviornment')
 
-
 netbox_token = os.getenv('NETBOX_TOKEN')
 if not netbox_token:
     sys.exit('NETBOX_TOKEN not found in environment')
-
 
 # create the netbox-pyswagger instance, passing in the
 # pynetbox client instance
