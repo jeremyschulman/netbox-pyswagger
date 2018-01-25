@@ -48,11 +48,11 @@ if not netbox_token:
 
 netbox = Client(base_url=base_url, api_token=netbox_token)
 
-# Run the command to get all VLANs.  Note the final attribute
-# "ipam_vlans_list"  is the operationId for the Swagger API.
+# Run the command to get all VLANs.  Note the first attribute
+# after request is the Swagger tag value (ipam), and the final attribute
+# is the operationId value (ipam_vlans_list).
 
 resp, ok = netbox.request.ipam.ipam_vlans_list()
-
 ```
 
 The `resp` contains the response payload, for example:
