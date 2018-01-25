@@ -3,7 +3,7 @@ from __future__ import print_function
 import os
 import sys
 
-
+import pynetbox
 from netbox_pyswagger import Client
 
 
@@ -17,5 +17,5 @@ if not netbox_token:
     sys.exit('NETBOX_TOKEN not found in environment')
 
 
-
-netbox = Client(base_url=base_url, api_token=netbox_token)
+pynb = pynetbox.api(url=base_url, token=netbox_token)
+netbox = Client(pynb=pynb)
