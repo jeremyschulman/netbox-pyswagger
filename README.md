@@ -99,6 +99,8 @@ The `resp` contains the response payload, for example:
 }
 ```
 
+The more interesting examples are when you are doing comamnds that have body parameters
+such as POST and PATCH.  See [this tutorial](https://github.com/jeremyschulman/halutz/blob/master/docs/Request-Body.ipynb) for a good example.
 
 # Example - with pynetbox
 
