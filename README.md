@@ -1,9 +1,9 @@
 # Python Swagger Client for Netbox
 
 If you love [Netbox](https://github.com/digitalocean/netbox), and you 
-automate the system via it's REST API, then this package is for you.
+want to automate the server via its REST API, then this package is for you.
 If you are already using the [pynetbox](https://github.com/digitalocean/pynetbox)
-client, you can use both together.
+client you can use both together.
 
 The `netbox-pyswagger` client consumes the Netbox Swagger 2.0 spec
 from the server and provides you "user-friendly" programming
