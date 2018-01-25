@@ -133,7 +133,7 @@ resp = netbox.remote.ipam.vlans.all()
 ```
 
 The `resp` contains the pynetbox VLAN instance values.  For the
-same example, the `resp` would contain the list `[green, blue]`.
+same example, `resp` would contain the list `[green, blue]`.
 For example, dumping out the *green* instance:
 
 ```python
