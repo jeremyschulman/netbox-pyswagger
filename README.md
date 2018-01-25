@@ -7,18 +7,24 @@ client you can use both together.
 
 The `netbox-pyswagger` client consumes the Netbox Swagger 2.0 spec
 from the server and provides you "user-friendly" programming
-model that:
+model.  
 
-  - Does not require you to know any specific APIs.
-  - Validates all of your inputs based on the spec json-schemas
+The most significant advantage of this approach is the client capabilities are always
+in sync with the server because the swagger spec is used to autobuilt the commands, 
+parameters, and validations.
+
+Other features include:
+  - Validates all of your inputs based on the [jsonschemas](https://github.com/Julian/jsonschema) within the Swagger spec.
   - Provides object models for all parameter body data structures so
   you can create body data that is validated as you go along
   - Provides introspection "help" information, if you are using an
   interactive interpreter environment such as ipython and jupyter notebooks
 
-The `netbox-pyswagger` client is built on the [halutz](https://github.com/jeremyschulman/halutz) library.  
-For detailed examples and usage,
- please refer to the halutz [tutorials](https://github.com/jeremyschulman/halutz/tree/master/docs)
+The `netbox-pyswagger` client is built on the [halutz](https://github.com/jeremyschulman/halutz) library,
+which in turn leverages the [bravado](https://github.com/Yelp/bravado) and 
+[python-jsonschema-objects](https://github.com/cwacek/python-jsonschema-objects) pacakges.
+  
+For detailed examples and usage of the halutz library, please refer to these [tutorials](https://github.com/jeremyschulman/halutz/tree/master/docs).
  
 # Installation
 
