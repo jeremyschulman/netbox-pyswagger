@@ -15,6 +15,7 @@ for usage.
 
 ---
 ** NOTE **
+
 If you are already using the <a href="https://github.com/digitalocean/pynetbox">pynetbox</a>
 client you can use both together.  See this example tutorial.  
 
