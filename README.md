@@ -25,7 +25,7 @@ client you can use both together.  See this example tutorial.
 pip install netbox-pyswagger
 ```
 
-# Getting Started
+# Quickstart
 
 This example shows you how to create a client, and create a VLAN.
 ```python
@@ -79,6 +79,11 @@ of the response data, `resp`:
   - [python-jsonschema-objects](https://github.com/cwacek/python-jsonschema-objects) for classbuilding
   the json-schema objects
   - [halutz](https://github.com/jeremyschulman/halutz) for wrapping all the above together
+
+## Other Links
+
+  - [Swagger 2.0 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
+  - [JSON-schema](http://json-schema.org/)
 
 ## Acknowledgements
 
