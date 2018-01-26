@@ -1,0 +1,58 @@
+The more interesting examples are when you are doing comamnds that have body parameters
+such as POST and PATCH.  See [this tutorial](https://github.com/jeremyschulman/halutz/blob/master/docs/Request-Body.ipynb) for a good example.
+
+# Example - with pynetbox
+
+Here is the same example of using netbox-pyswagger and pynetbox
+client.  When you use this approach, the netbox-pyswagger instance
+maintains an attribute called `remote` which is set to the pynetbox
+instance you provided.
+
+```python
+import os
+import sys
+
+import pynetbox
+from netbox_pyswagger import Client
+
+base_url = os.getenv('NETBOX_SERVER')
+if not base_url:
+    sys.exit('NETBOX_SERVER not found in enviornment')
+
+netbox_token = os.getenv('NETBOX_TOKEN')
+if not netbox_token:
+    sys.exit('NETBOX_TOKEN not found in environment')
+
+# create the netbox-pyswagger instance, passing in the
+# pynetbox client instance
+
+netbox = Client(pynb=pynetbox.api(url=base_url, token=netbox_token))
+
+# run the command to get all VLANs using the pynetbox method
+
+resp = netbox.remote.ipam.vlans.all()
+```
+
+The `resp` contains the pynetbox VLAN instance values.  For the
+same example, `resp` would contain the list `[green, blue]`.
+For example, dumping out the *green* instance:
+
+```python
+for name, value in resp[0]:
+    print(name, value)
+```
+
+results in:
+```bash
+status {u'value': 1, u'label': u'Active'}
+group None
+name green
+vid 99
+site None
+role None
+tenant None
+display_name 99 (green)
+id 4
+custom_fields {}
+description
+```
