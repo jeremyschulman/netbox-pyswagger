@@ -42,12 +42,15 @@ netbox = Client(server_url, api_token=api_token)
 new_vlan = netbox.request.ipam.ipam_vlans_create
 
 # the command body parameter is called 'data' and here we set the required values
+# if you set an invalid value, like setting `vid` to "foobaz", you will get a validation
+# exception
 
 new_vlan.data.vid = 10
 new_vlan.data.name = 'Blue'
 
 # finally execute the command, which provides us the response data and the indication
-# if the command executed ok or not.
+# if the command executed ok or not.  If the command had addition (non-body) parameters
+# you would provide them as key-value pairs to the call.
 
 resp, ok = new_vlan()
 ```
