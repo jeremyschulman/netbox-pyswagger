@@ -13,10 +13,9 @@ experience and not require **hard-core** programming to automate the Netbox syst
 client was built with the halutz package - see these [tutorials](https://github.com/jeremyschulman/halutz/tree/master/docs)
 for usage.
 
-<div class="alert alert-info">
-If you are already using the <a href="https://github.com/digitalocean/pynetbox">pynetbox</a>
+
+`:+1:` If you are already using the <a href="https://github.com/digitalocean/pynetbox">pynetbox</a>
 client you can use both together.  See this example tutorial.  
-</div>
 
  
 # Installation
@@ -36,13 +35,18 @@ api_token = "0123456789abcdef0123456789abcdef01234567"
 
 netbox = Client(server_url, api_token=api_token)
 
-# Run the command to get all VLANs.  Note the first attribute
-# after request is the Swagger tag value (ipam), and the final attribute
-# is the operationId value (ipam_vlans_list).
+# Use the `request` attribute to access a specific API based on the Swagger tag value
+# (ipam) and the Swagger operationId value (ipam_vlans_create)
 
 new_vlan = netbox.request.ipam.ipam_vlans_create
+
+# the command body parameter is called 'data' and here we set the required values
+
 new_vlan.data.vid = 10
 new_vlan.data.name = 'Blue'
+
+# finally execute the command, which provides us the response data and the indication
+# if the command executed ok or not.
 
 resp, ok = new_vlan()
 ```
