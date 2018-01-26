@@ -7,8 +7,9 @@ and [jupyter notesbooks](http://jupyter.org/), then this client is for you!
 The gist of this client is that it consumes the Netbox Swagger 2.0 spec and uses that information
 to dynamically create a client with all API capabilities, model parameters as objects, and perform data validataton
 on all request parameters and responses.  You never have to worry about the client being "out of sync"
-with the server API.  This client is specifically designed so that it can be used in
-an interactive Python shell, such as ipython and jupyter notebooks, in order to create a *CLI-like* user
+with the Netbox API.  This client is specifically designed so that you can *introspect*, that is show in a "help" like manner,
+everything about each API, parameter, and data-type so that you do not need to have any API docs.  You can use
+this client in an interactive Python shell, such as ipython and jupyter notebooks, in order to create a *CLI-like* user
 experience and not require **hard-core** programming to automate the Netbox system.  For these purpose, this
 client was built with the halutz package - see these [tutorials](https://github.com/jeremyschulman/halutz/tree/master/docs)
 for usage.
