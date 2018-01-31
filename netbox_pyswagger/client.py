@@ -8,9 +8,10 @@ __all__ = ['Client']
 class Client(HalutzClient):
     apidocs_url = "/api/docs?format=openapi"
 
-    def __init__(self, server_url, api_token, remote=None):
-        netbox = Session()
+    def __init__(self, server_url, api_token, session=None, remote=None):
+        netbox = session or Session()
         netbox.headers['Authorization'] = "Token %s" % api_token
+
         super(Client, self).__init__(
             server_url=server_url,
             session=netbox,
