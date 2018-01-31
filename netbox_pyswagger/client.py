@@ -11,6 +11,7 @@ class Client(HalutzClient):
     def __init__(self, server_url, api_token, session=None, remote=None):
         netbox = session or Session()
         netbox.headers['Authorization'] = "Token %s" % api_token
+        self.api_version = None
 
         super(Client, self).__init__(
             server_url=server_url,
@@ -28,4 +29,17 @@ class Client(HalutzClient):
 
     def fetch_swagger_spec(self):
         url = "%s%s" % (self.server_url, self.apidocs_url)
-        return self.session.get(url).json()
+        resp = self.session.get(url)
+
+        if not resp.ok:
+            raise RuntimeError(
+                'unable to fetch Swagger spec:', resp)
+
+        spec = resp.json()
+        if 'paths' not in spec:
+            if spec.get('details', '') == 'Invalid token':
+                raise RuntimeError('Invalid API token provided')
+
+        self.api_version = resp.headers['API-Version']
+
+        return spec
