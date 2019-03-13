@@ -22,7 +22,7 @@ setup(
     license='MIT',
     zip_safe=False,
     install_requires=[
-        'halutz>=0.2.0',
+        'halutz>=0.3.0',
         'requests',
         'six'
     ],
